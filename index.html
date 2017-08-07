@@ -24,8 +24,215 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+<section>Why?</section>
+<section>Why do we want to run stuff on JS?</section>
+<section>
+JS is in the browser
+</section>
+<section>
+JS is getting everywhere else
+</section>
+<section>
+React.native
+</section>
+<section>
+node.js
+</section>
+
+<section>
+v8 node.js
+</section>
+
+<section>
+Graal.js - on the JVM
+</section>
+
+<section>
+chakra node.js (time travel debugging)
+</section>
+
+<section>
+Electron 
+</section>
+
+<section>
+Why do we want to run *Perl6* on JS?
+</section>
+
+<section>
+JS is not fun for a lot of people
+</section>
+
+<section>
+(I like JS, Perl 6 is just more awesome)
+</section>
+
+<section>
+Isomorphic Perl 6
+</section>
+
+<section>
+Sharing code between backend and frontend
+</section>
+
+<section>
+How?
+</section>
+
+<section>
+Implementating Perl 6 on your own is a ton of work
+</section>
+
+<section>
+I tried that before :/
+</section>
+
+<section>
+Solution: A backend for Rakudo
+</section>
+
+<section>
+A tale of two languages
+</section>
+
+<section>
+NQP
+</section>
+
+<section>
+NQP   ---> QAST
+Perl6 ---> QAST
+</section>
+
+<section>
+QAST ---> JS
+</section>
+
+<section>
+example of some QAST test
+</section>
+
+<section>
+nqp:: ops
+</section>
+
+<section>
+say(nqp::add_i(12, 3));
+</section>
+
+<section>
+QAST::Op example
+</section>
+
+<section>
+writing tests for those
+</section>
+
+<section>
+Sometimes after the building blocks are do stuff just works
+</section>
+
+<section>
+Often loads of tedious debugging if I misunderstand some small detail
+</section>
+
+<section>
+Source maps
+</section>
+
+<section>
+Support for them designed from the start
+</section>
+
+<section>
+Chunk.new($type, $expr, @setup)
+</section>
+
+<section>
+Chunk.new($T_OBJ, 'TMP1', [$chunk, "TMP1 = {$chunk.expr}"], :$node)
+</section>
+
+<section>
+Continuations
+</section>
+
+<section>
+Gather/take example here
+</section>
+
+<section>
+On node.js we fibers
+</section>
+
+<section>
+In the browser we sprinkle await/async
+</section>
+
+<section>
+JavaScript is evolving towards becoming a better Perl 6 target
+</section>
+
+<section>
+What's done?
+</section>
+
+<section>
+We pass 55+% of roast test files on node.js
+</section>
+
+<section>
+Challenges
+</section>
+
+<section>
+Performance is the big one
+</section>
+
+<section>
+It's the biggest problem of other backends two
+</section>
+
+<section>
+I want to fully undestand Rakudo internals before I start bending stuff
+</section>
+
+<section>
+Performance of the compiler and user programs are two different things
+</section>
+
+<section>
+NQP vs Perl 6
+</section>
+
+<section>
+NQP can be tweaked
+</section>
+
+<section>
+Perl 6 can't/shouldn't
+</section>
+
+<section>
+For browser delivery code size matters
+</section>
+
+<section>
+Tree shaking solves the problem for other languages
+</section>
+
+<section>
+EVAL is a problem
+</section>
+
+<section>
+Use that with :lang<JavaScript> only
+</section>
+
+<section>
+Having a fast subset of Perl 6 is a more reachable goal
+</section>
+
 			</div>
 		</div>
 
