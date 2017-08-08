@@ -41,23 +41,36 @@ node.js
 </section>
 
 <section>
-v8 node.js
+node.js runs on the v8
 </section>
 
 <section>
-Graal.js - on the JVM
+Graal.js - node.js on the JVM
 </section>
 
 <section>
-chakra node.js (time travel debugging)
+node.js also runs on chakracore (time travel debugging)
 </section>
+
 
 <section>
 Electron 
 </section>
 
 <section>
+Some editors are extendable with JS
+</section>
+
+<section>
 Why do we want to run *Perl6* on JS?
+</section>
+
+<section>
+Transpilers are common in JS land
+</section>
+
+<section>
+People are even compiling JS to JS
 </section>
 
 <section>
@@ -69,7 +82,11 @@ JS is not fun for a lot of people
 </section>
 
 <section>
-Isomorphic Perl 6
+Fun matters.
+</section>
+
+<section>
+"Isomorphic Perl 6"
 </section>
 
 <section>
@@ -97,12 +114,17 @@ A tale of two languages
 </section>
 
 <section>
-NQP
+  <ul>
+    <li>NQP</li>
+    <li>Perl 6</li>
+  </ul>
 </section>
 
 <section>
-NQP   ---> QAST
-Perl6 ---> QAST
+  <ul>
+    <li>NQP   ---> QAST</li>
+    <li>Perl6 ---> QAST</li>
+  </ul>
 </section>
 
 <section>
@@ -110,7 +132,20 @@ QAST ---> JS
 </section>
 
 <section>
-example of some QAST test
+  <pre>
+  <code>
+  is_qast(
+      QAST::Block.new(
+          QAST::Op.new(
+              :op('if'),
+              QAST::IVal.new(:value(1)),
+              QAST::IVal.new(:value(2))
+          )
+      ),
+      2,
+      'if with IVal, 2-operand');
+  </code>
+  </pre>
 </section>
 
 <section>
@@ -118,11 +153,23 @@ nqp:: ops
 </section>
 
 <section>
-say(nqp::add_i(12, 3));
+  <pre>
+  <code>
+  say(nqp::add_i(12, 3));
+  </code>
+  </pre>
 </section>
 
 <section>
-QAST::Op example
+  <pre>
+  <code>
+  QAST::Op.new(
+      :op('add_i'),
+      QAST::IVal.new(:value(12)),
+      QAST::IVal.new(:value(3))
+  )
+  </code>
+  </pre>
 </section>
 
 <section>
@@ -130,7 +177,26 @@ writing tests for those
 </section>
 
 <section>
-Sometimes after the building blocks are do stuff just works
+  <pre>
+  <code>
+ok( nqp::add_i(5,2) == 7, 'nqp::add_i');
+ok( nqp::sub_i(5,2) == 3, 'nqp::sub_i');
+ok( nqp::mul_i(5,2) == 10, 'nqp::mul_i');
+ok( nqp::div_i(5,2) == 2, 'nqp::div_i');
+is(nqp::div_i(-8, 3), -3, 'nqp::div_i');
+is(nqp::div_i(9, -4), -3, 'nqp::div_i rounds down');
+ok( nqp::mod_i(5,2) == 1, 'nqp::mod_i');
+ok( nqp::pow_i(6, 4) == 1296, 'nqp::pow_i');
+  </code>
+  </pre>
+</section>
+
+<section>
+Sometimes once building blocks are done, stuff works
+</section>
+
+<section>
+<img src='lego.jpg'/>
 </section>
 
 <section>
@@ -139,6 +205,7 @@ Often loads of tedious debugging if I misunderstand some small detail
 
 <section>
 Source maps
+<img src='help.png'/>
 </section>
 
 <section>
@@ -146,11 +213,24 @@ Support for them designed from the start
 </section>
 
 <section>
-Chunk.new($type, $expr, @setup)
+Native types
 </section>
 
 <section>
-Chunk.new($T_OBJ, 'TMP1', [$chunk, "TMP1 = {$chunk.expr}"], :$node)
+  <pre>
+  <code>
+  nqp::add_i(100, 200)
+  </pre>
+  </code>
+</section>
+
+<section>
+  Compiled as:
+  <pre>
+  <code>
+  (100+200)|0
+  </pre>
+  </code>
 </section>
 
 <section>
@@ -158,7 +238,36 @@ Continuations
 </section>
 
 <section>
-Gather/take example here
+
+  <pre>
+  <code>
+my $list = gather {
+  say "#1";
+  take 123;
+  say "#2";
+  take 456;
+  say "#3";
+  take 789;
+};
+
+say($list[1]);
+say($list[2]);
+say($list[3]);
+
+  </code>
+  </pre>
+
+</section>
+
+<section>
+  <pre>
+#1
+123
+#2
+456
+#3
+789
+  </pre>
 </section>
 
 <section>
@@ -182,6 +291,14 @@ We pass 55+% of roast test files on node.js
 </section>
 
 <section>
+A few tricky lexical scope deserialization bugs
+</section>
+
+<section>
+A bunch of SMOP bugs
+</section>
+
+<section>
 Challenges
 </section>
 
@@ -194,7 +311,7 @@ It's the biggest problem of other backends two
 </section>
 
 <section>
-I want to fully undestand Rakudo internals before I start bending stuff
+I want to fully undestand whag's needed before I start bending stuff
 </section>
 
 <section>
@@ -231,6 +348,19 @@ Use that with :lang<JavaScript> only
 
 <section>
 Having a fast subset of Perl 6 is a more reachable goal
+</section>
+
+<section>
+<img src='lego.jpg'/>
+</section>
+
+<section>
+Why not target WebASM (or asm.js)?
+<img src='wasm.png'/>
+</section>
+
+<section>
+Currently it's like directly targeting a simple CPU
 </section>
 
 			</div>
