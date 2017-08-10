@@ -25,23 +25,43 @@
 		<div class="reveal">
 			<div class="slides">
 
-<section>Why?</section>
-<section>Why do we want to run stuff on JS?</section>
+<section>Compiling Perl 6 to JavaScript</section>
 <section>
-JS is in the browser
+<img src="why.jpg"/>
 </section>
+<section>Why would we want to run stuff on JS?</section>
 <section>
-JS is getting everywhere else
+<div>JS is in the browser</div>
+<img src="internet_explorer.jpg"/>
 </section>
+
 <section>
-React.native
+<p>JS is getting everywhere else</p>
 </section>
+
+<section>
+<p>Internet of Things</p>
+<img src='goldberg.jpg'/>
+</section>
+
+<section>
+<p>React.native</p>
+<img src='phones.jpg'/>
+</section>
+
 <section>
 node.js
 </section>
 
 <section>
-node.js runs on the v8
+Inline-Perl5 will work on node.js...
+<p class="fragment">...you can use both left-pad and CGI.pm</p>
+<p class="fragment">...or not</p>
+</section>
+
+<section>
+node.js mainly runs on the v8
+<p class="fragment">...but not only</p>
 </section>
 
 <section>
@@ -49,32 +69,46 @@ Graal.js - node.js on the JVM
 </section>
 
 <section>
-node.js also runs on chakracore (time travel debugging)
-</section>
-
-
-<section>
-Electron 
+node.js also runs on ChakraCore
 </section>
 
 <section>
-Some editors are extendable with JS
+Time travel debugging
+<img src="back_to_the_future.jpg"/>
 </section>
 
 <section>
-Why do we want to run *Perl6* on JS?
+Step back to see why your test failed
 </section>
 
 <section>
-Transpilers are common in JS land
+<p>Electron</p>
+<img src="electron_example.png"/>
 </section>
 
 <section>
-People are even compiling JS to JS
+<p>Some editors are extendable with JS</p>
+<img src="atom.gif"/>
 </section>
 
 <section>
+Why not just use raw JS?
+</section>
+
+<section>
+People compile stuff to JS so much we have a weird name for it
+</section>
+
+<section>
+<p>People are even compiling JS to JS</p>
+<img src="babel.jpg"/>
+</section>
+
+<section>
+<p>
 JS is not fun for a lot of people
+</p>
+<img src="mob.png"/>
 </section>
 
 <section>
@@ -179,14 +213,7 @@ writing tests for those
 <section>
   <pre>
   <code>
-ok( nqp::add_i(5,2) == 7, 'nqp::add_i');
-ok( nqp::sub_i(5,2) == 3, 'nqp::sub_i');
-ok( nqp::mul_i(5,2) == 10, 'nqp::mul_i');
-ok( nqp::div_i(5,2) == 2, 'nqp::div_i');
-is(nqp::div_i(-8, 3), -3, 'nqp::div_i');
 is(nqp::div_i(9, -4), -3, 'nqp::div_i rounds down');
-ok( nqp::mod_i(5,2) == 1, 'nqp::mod_i');
-ok( nqp::pow_i(6, 4) == 1296, 'nqp::pow_i');
   </code>
   </pre>
 </section>
@@ -200,7 +227,8 @@ Sometimes once building blocks are done, stuff works
 </section>
 
 <section>
-Often loads of tedious debugging if I misunderstand some small detail
+<img src='horror.jpg'/>
+<p>Often loads of tedious debugging if I misunderstand some small detail</p>
 </section>
 
 <section>
@@ -279,7 +307,17 @@ In the browser we sprinkle await/async
 </section>
 
 <section>
+  <pre>
+  <code>
+     ... 
+  </code>
+  </pre>
+</section>
+
+<section>
+<p>
 JavaScript is evolving towards becoming a better Perl 6 target
+</p>
 </section>
 
 <section>
@@ -291,11 +329,21 @@ We pass 55+% of roast test files on node.js
 </section>
 
 <section>
-A few tricky lexical scope deserialization bugs
+A few tricky lexical scope bugs break random tests
 </section>
 
 <section>
-A bunch of SMOP bugs
+<p>Closure shenanigans in rakudo</p>
+<img src='lego.jpg'/>
+</section>
+
+<section>
+<p>I need to improve that</p>
+<img src='firebat.jpg'/>
+</section>
+
+<section>
+A bunch of assorted bugs
 </section>
 
 <section>
@@ -336,22 +384,6 @@ For browser delivery code size matters
 
 <section>
 Tree shaking solves the problem for other languages
-</section>
-
-<section>
-EVAL is a problem
-</section>
-
-<section>
-Use that with :lang<JavaScript> only
-</section>
-
-<section>
-Having a fast subset of Perl 6 is a more reachable goal
-</section>
-
-<section>
-<img src='lego.jpg'/>
 </section>
 
 <section>
