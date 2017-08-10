@@ -96,7 +96,8 @@ Why not just use raw JS?
 </section>
 
 <section>
-People compile stuff to JS so much we have a weird name for it
+<h1> Transpilers </h1>
+<p>People compile stuff to JS so much we have a weird name for it</p>
 </section>
 
 <section>
@@ -219,16 +220,13 @@ is(nqp::div_i(9, -4), -3, 'nqp::div_i rounds down');
 </section>
 
 <section>
+<p> <img src='lego.jpg'/> </p>
 Sometimes once building blocks are done, stuff works
 </section>
 
 <section>
-<img src='lego.jpg'/>
-</section>
-
-<section>
-<img src='horror.jpg'/>
-<p>Often loads of tedious debugging if I misunderstand some small detail</p>
+<p>I misunderstand some small detail...</p>
+<img src='horror_small.jpg'/>
 </section>
 
 <section>
@@ -238,6 +236,10 @@ Source maps
 
 <section>
 Support for them designed from the start
+</section>
+
+<section>
+We generate an intermediate format instead of raw source
 </section>
 
 <section>
@@ -267,9 +269,7 @@ Continuations
 
 <section>
 
-  <pre>
-  <code>
-my $list = gather {
+  <pre><code>my $list = gather {
   say "#1";
   take 123;
   say "#2";
@@ -280,11 +280,7 @@ my $list = gather {
 
 say($list[1]);
 say($list[2]);
-say($list[3]);
-
-  </code>
-  </pre>
-
+say($list[3]);</code></pre>
 </section>
 
 <section>
@@ -384,6 +380,10 @@ For browser delivery code size matters
 
 <section>
 Tree shaking solves the problem for other languages
+</section>
+
+<section>
+Extra
 </section>
 
 <section>
