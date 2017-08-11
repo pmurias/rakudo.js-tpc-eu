@@ -55,8 +55,8 @@ node.js
 
 <section>
 Inline-Perl5 will work on node.js...
-<p class="fragment">...you can use both left-pad and CGI.pm</p>
-<p class="fragment">...or not</p>
+<p class="fragment">...so you can use both left-pad and CGI.pm</p>
+<p class="fragment">...or something more reasonable</p>
 </section>
 
 <section>
@@ -64,9 +64,6 @@ node.js mainly runs on the v8
 <p class="fragment">...but not only</p>
 </section>
 
-<section>
-Graal.js - node.js on the JVM
-</section>
 
 <section>
 node.js also runs on ChakraCore
@@ -82,6 +79,14 @@ Step back to see why your test failed
 </section>
 
 <section>
+Graal.js - node.js on the JVM
+</section>
+
+<section>
+A second JVM backend for free :)
+</section>
+
+<section>
 <p>Electron</p>
 <img src="electron_example.png"/>
 </section>
@@ -89,6 +94,14 @@ Step back to see why your test failed
 <section>
 <p>Some editors are extendable with JS</p>
 <img src="atom.gif"/>
+</section>
+
+<section>
+V8 is embedded in the UE4 game engine
+</section>
+
+<section>
+A lot cooler then SDL
 </section>
 
 <section>
@@ -118,6 +131,10 @@ JS is not fun for a lot of people
 
 <section>
 Fun matters.
+</section>
+
+<section>
+Both front end and backend in the same language
 </section>
 
 <section>
@@ -198,6 +215,14 @@ nqp:: ops
 <section>
   <pre>
   <code>
+    nqp::setinvokespec(Foo,Foo,'$!code_ref',nqp::null());
+  </code>
+  </pre>
+</section>
+
+<section>
+  <pre>
+  <code>
   QAST::Op.new(
       :op('add_i'),
       QAST::IVal.new(:value(12)),
@@ -208,7 +233,11 @@ nqp:: ops
 </section>
 
 <section>
-writing tests for those
+I try to write tests before implementing stuff
+</section>
+
+<section>
+Hopefully that helps future backends
 </section>
 
 <section>
@@ -220,13 +249,19 @@ is(nqp::div_i(9, -4), -3, 'nqp::div_i rounds down');
 </section>
 
 <section>
-<p> <img src='lego.jpg'/> </p>
+<p> 
 Sometimes once building blocks are done, stuff works
+</p>
+<img src='lego.jpg'/> 
 </section>
 
 <section>
-<p>I misunderstand some small detail...</p>
-<img src='horror_small.jpg'/>
+Junctions mostly worked that way.
+</section>
+
+<section>
+<p>If I misunderstand some small detail...</p>
+<img src='holmes.jpg'/>
 </section>
 
 <section>
@@ -239,11 +274,19 @@ Support for them designed from the start
 </section>
 
 <section>
-We generate an intermediate format instead of raw source
+We generate an intermediate format with that info
 </section>
 
 <section>
 Native types
+</section>
+
+<section>
+  <pre>
+  <code>
+  my int $c = 100 + 200;
+  </pre>
+  </code>
 </section>
 
 <section>
@@ -265,6 +308,14 @@ Native types
 
 <section>
 Continuations
+</section>
+
+<section>
+One shot continuation
+</section>
+
+<section>
+They are commonly known as coroutines 
 </section>
 
 <section>
@@ -295,7 +346,7 @@ say($list[3]);</code></pre>
 </section>
 
 <section>
-On node.js we fibers
+On node.js we have fibers
 </section>
 
 <section>
@@ -305,14 +356,30 @@ In the browser we sprinkle await/async
 <section>
   <pre>
   <code>
-     ... 
+      async function onEveryBlock() {
+        let ret = await foo.everyMethod();
+      }
   </code>
   </pre>
 </section>
 
 <section>
+  <pre>
+  <code>
+  function suspendExecution() {
+    return new Promise(function(resolve, reject) {
+      //when we want to resume the coroutine we call resolve
+    });
+  </code>
+  </pre>
+</section>
+
+<section>
+<h1>
+JavaScript is evolving
+</h1>
 <p>
-JavaScript is evolving towards becoming a better Perl 6 target
+towards becoming a better Perl 6 target
 </p>
 </section>
 
@@ -329,12 +396,12 @@ A few tricky lexical scope bugs break random tests
 </section>
 
 <section>
-<p>Closure shenanigans in rakudo</p>
-<img src='lego.jpg'/>
+<p>Closure shenanigans are the suspect</p>
+<img src='crazy.jpg'/>
 </section>
 
 <section>
-<p>I need to improve that</p>
+<p>I need to fix that</p>
 <img src='firebat.jpg'/>
 </section>
 
@@ -351,7 +418,7 @@ Performance is the big one
 </section>
 
 <section>
-It's the biggest problem of other backends two
+It's the biggest problem of other backends too
 </section>
 
 <section>
@@ -379,7 +446,13 @@ For browser delivery code size matters
 </section>
 
 <section>
-Tree shaking solves the problem for other languages
+<p>Tree shaking solves the problem for other languages<p>
+<img src="tree.jpg"/>
+</section>
+
+<section>
+<p>Make a graph of what uses what and get rid of the dead code</p>
+<img src="dead.jpg"/>
 </section>
 
 <section>
@@ -392,7 +465,20 @@ Why not target WebASM (or asm.js)?
 </section>
 
 <section>
+Currently it's designed as a target for C/C++
+</section>
+
+<section>
+Perl 6 needs a VM for GC etc.
+</section>
+
+<section>
 Currently it's like directly targeting a simple CPU
+</section>
+
+<section>
+<h1>Get Involved</h1>
+#perl6 on freenode.org
 </section>
 
 			</div>
